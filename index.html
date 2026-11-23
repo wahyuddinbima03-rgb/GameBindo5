@@ -1,0 +1,1682 @@
+<title>SAS Ganjil Bahasa Indonesia Kelas V — SD Negeri Sari Kalampa (Nuansa Bima)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --font-display: 'Fredoka', 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+    body {
+      font-family: var(--font-body);
+      /* Nuansa terakota/Tembe Nggoli hangat, biru laut Lawata, dan hijau segar Woha */
+      background-color: #fffbeb;
+      background-image:
+        radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.14) 0%, transparent 38%),
+        radial-gradient(circle at 90% 14%, rgba(194, 65, 12, 0.14) 0%, transparent 40%),
+        radial-gradient(circle at 50% 95%, rgba(16, 185, 129, 0.14) 0%, transparent 45%),
+        linear-gradient(160deg, #fffbeb 0%, #ffedd5 48%, #e0f2fe 100%);
+      min-height: 100vh;
+      color: #1e293b;
+    }
+    h1, h2, h3, .font-display {
+      font-family: var(--font-display);
+    }
+    /* Aksen geometris sederhana terinspirasi motif tenun Mbojo / Tembe Nggoli */
+    .tembe-stripe {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #9a3412 0px,
+        #9a3412 14px,
+        #f59e0b 14px,
+        #f59e0b 22px,
+        #0369a1 22px,
+        #0369a1 34px,
+        #fbbf24 34px,
+        #fbbf24 40px
+      );
+    }
+    .game-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 2px solid #fed7aa;
+      box-shadow: 0 10px 25px -5px rgba(124, 45, 18, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+    }
+    .btn-bubble {
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
+    }
+    .btn-bubble:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+    .btn-bubble:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+    .nav-pill {
+      transition: all 0.15s ease;
+    }
+    .nav-pill:hover {
+      transform: translateY(-1px);
+    }
+    @media print {
+      body {
+        background: #ffffff !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-card {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-200 selection:text-slate-900">
+  <!-- Main App Container -->
+  <div id="app" class="max-w-6xl mx-auto px-3 sm:px-6 py-4 sm:py-6 space-y-5">
+
+    <!-- 1. HEADER BERTEMA SD NEGERI SARI KALAMPA & BUDAYA LOKAL BIMA -->
+    <header class="game-card rounded-3xl relative overflow-hidden border-b-4 border-b-orange-600">
+      <div class="tembe-stripe w-full"></div>
+      <div class="p-4 sm:p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <div class="space-y-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-900 border border-orange-200 text-xs sm:text-sm font-bold tracking-wide">
+              <span>🏫</span>
+              <span>SD NEGERI SARI KALAMPA • KEC. WOHA, KAB. BIMA</span>
+            </span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-sky-100 text-sky-900 border border-sky-200 text-xs font-extrabold">
+              <span>🌊</span>
+              <span>Nuansa Budaya Mbojo — Bima</span>
+            </span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
+            Petualangan Kuis SAS Ganjil: Bahasa Indonesia Kelas V
+          </h1>
+          <p class="text-xs sm:text-sm md:text-base text-slate-600 font-medium">
+            Bab I: <em>Aku yang Unik</em> • Bab II: <em>Buku adalah Jendela Dunia</em> • Bab III: <em>Ekspresi Diri melalui Hobi</em> • Bab IV: <em>Belajar Berwirausaha</em>
+          </p>
+        </div>
+
+        <!-- Student Identity, Streak & Score Summary Box -->
+        <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-sky-50 border-2 border-amber-300 rounded-2xl p-3.5 sm:p-4 lg:w-84 shrink-0 space-y-2.5">
+          <label for="studentNameInput" class="block text-xs font-extrabold uppercase tracking-wider text-amber-950">
+            ✏️ Nama Siswa / Peserta Kuis
+          </label>
+          <input
+            id="studentNameInput"
+            type="text"
+            placeholder="Ketik namamu di sini..."
+            class="w-full px-3.5 py-2 rounded-xl border-2 border-amber-300 bg-white text-slate-800 font-semibold text-sm focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+          />
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-bold text-slate-700">
+            <span>Diperiksa: <span id="checkedCountText" class="text-sky-700">0/30</span></span>
+            <span>Skor: <span id="liveScoreText" class="text-emerald-700">0 / 50</span></span>
+            <span class="px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">
+              🔥 Runtun: <span id="streakCountText">0</span>
+            </span>
+          </div>
+          <!-- Progress Bar -->
+          <div class="w-full h-2.5 bg-amber-200/80 rounded-full overflow-hidden">
+            <div id="progressBarFill" class="h-full bg-gradient-to-r from-orange-500 via-amber-500 to-emerald-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. FILTER / TAB BAGIAN & KONTROL AKSI UTAMA -->
+    <section class="game-card rounded-3xl p-3.5 sm:p-4 space-y-3 no-print">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <!-- Section Tabs -->
+        <div id="sectionTabs" class="flex flex-wrap gap-1.5 sm:gap-2" role="tablist" aria-label="Filter Bagian Soal">
+          <button data-section="ALL" class="sec-tab px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-sky-600 text-white shadow-sm">
+            Semua (1–30)
+          </button>
+          <button data-section="PG" class="sec-tab px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-sky-50">
+            PG Biasa (1–15)
+          </button>
+          <button data-section="PGK" class="sec-tab px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-sky-50">
+            PG Kompleks (16–18)
+          </button>
+          <button data-section="BS" class="sec-tab px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-sky-50">
+            Benar/Salah (19–20)
+          </button>
+          <button data-section="ISIAN" class="sec-tab px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-sky-50">
+            Isian (21–25)
+          </button>
+          <button data-section="ESSAY" class="sec-tab px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-sky-50">
+            Essay (26–30)
+          </button>
+        </div>
+
+        <!-- Finish / Reset Action Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button
+            id="btnResetQuiz"
+            type="button"
+            class="btn-bubble px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-rose-100 text-rose-700 hover:bg-rose-200 border border-rose-200"
+          >
+            🔄 Ulangi Kuis
+          </button>
+          <button
+            id="btnFinishQuiz"
+            type="button"
+            class="btn-bubble px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-md hover:from-emerald-600 hover:to-teal-700"
+          >
+            🏆 Selesaikan &amp; Lihat Rekap Nilai
+          </button>
+        </div>
+      </div>
+
+      <!-- Question Navigator (1 - 30) -->
+      <div class="pt-2 border-t border-slate-100">
+        <div class="flex items-center justify-between text-xs text-slate-500 font-semibold mb-2">
+          <span>Navigasi Cepat Nomor Soal (Klik nomor untuk melompat):</span>
+          <div class="hidden sm:flex items-center gap-3">
+            <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded bg-sky-600 inline-block"></span> Aktif</span>
+            <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded bg-emerald-100 border border-emerald-500 inline-block"></span> Sudah Diperiksa</span>
+            <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded bg-amber-100 border border-amber-400 inline-block"></span> Terjawab</span>
+          </div>
+        </div>
+        <div id="questionNavigator" class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-15 gap-1.5">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast / Inline Alert Banner (Never uses alert()) -->
+    <div id="toastBanner" class="hidden rounded-2xl px-4 py-3 text-sm font-bold border-2 shadow-sm flex items-center justify-between gap-3 no-print">
+      <span id="toastMessage"></span>
+      <button id="toastClose" type="button" class="text-xs px-2 py-0.5 rounded-lg bg-black/10 hover:bg-black/20">Tutup</button>
+    </div>
+
+    <!-- 3. AREA SOAL AKTIF (KOTAK STIMULUS & MEKANIK INTERAKTIF) -->
+    <main id="questionStage" class="game-card rounded-3xl p-4 sm:p-7 space-y-5 border-b-4 border-b-amber-500">
+      <!-- Top Badges Row -->
+      <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+        <div class="flex flex-wrap items-center gap-2">
+          <span id="qNumberBadge" class="px-3.5 py-1.5 rounded-xl bg-sky-600 text-white font-display font-bold text-sm sm:text-base">
+            Soal No. 1
+          </span>
+          <span id="qSectionBadge" class="px-3 py-1 rounded-xl bg-indigo-50 text-indigo-700 border border-indigo-200 font-bold text-xs sm:text-sm">
+            Pilihan Ganda Biasa
+          </span>
+          <span id="qChapterBadge" class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 font-semibold text-xs sm:text-sm">
+            Bab I: Aku yang Unik
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span id="qDifficultyBadge" class="px-3 py-1 rounded-full font-extrabold text-xs">
+            Mudah
+          </span>
+          <span id="qHotsBadge" class="hidden px-3 py-1 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white font-extrabold text-xs shadow-sm">
+            ⚡ HOTS
+          </span>
+          <span id="qMaxScoreBadge" class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-bold text-xs">
+            Maks: 1 poin
+          </span>
+        </div>
+      </div>
+
+      <!-- Stimulus Box -->
+      <div class="rounded-2xl bg-gradient-to-br from-orange-50/90 via-amber-50/80 to-sky-50/90 border-2 border-amber-200/90 p-4 sm:p-5 space-y-1.5">
+        <div class="text-xs font-extrabold uppercase tracking-wider text-orange-900 flex items-center gap-1.5">
+          <span>📖</span>
+          <span>Stimulus / Kisah &amp; Informasi Lokal Bima</span>
+        </div>
+        <p id="qStimulusText" class="text-slate-800 text-sm sm:text-base leading-relaxed whitespace-pre-line font-medium"></p>
+      </div>
+
+      <!-- Question Prompt -->
+      <div class="space-y-1">
+        <h2 id="qPromptText" class="text-lg sm:text-xl font-bold text-slate-900 leading-snug"></h2>
+        <p id="qInstructionHint" class="text-xs sm:text-sm text-slate-500 font-medium"></p>
+      </div>
+
+      <!-- Interactive Answer Mechanics Container -->
+      <div id="qInteractionArea" class="space-y-3">
+        <!-- Populated by question type (PG, PGK, BS, ISIAN, ESSAY) -->
+      </div>
+
+      <!-- Feedback / Answer Key / Explanation Box -->
+      <div id="qFeedbackBox" class="hidden rounded-2xl p-4 sm:p-5 border-2 space-y-2.5 transition-all">
+        <div class="flex items-center justify-between gap-2">
+          <div id="qFeedbackTitle" class="font-display font-bold text-base sm:text-lg"></div>
+          <span id="qEarnedPointsBadge" class="px-3 py-1 rounded-full text-xs sm:text-sm font-extrabold"></span>
+        </div>
+        <div id="qKeyAnswerText" class="text-sm font-bold text-slate-800 bg-white/80 rounded-xl p-3 border border-slate-200/80"></div>
+        <div id="qExplanationText" class="text-sm text-slate-700 leading-relaxed"></div>
+      </div>
+
+      <!-- Bottom Navigation & Check Answer Controls -->
+      <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 no-print">
+        <div class="flex items-center gap-2">
+          <button
+            id="btnPrevQuestion"
+            type="button"
+            class="btn-bubble flex-1 sm:flex-initial px-4 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 disabled:opacity-40"
+          >
+            ⬅️ Sebelumnya
+          </button>
+          <button
+            id="btnNextQuestion"
+            type="button"
+            class="btn-bubble flex-1 sm:flex-initial px-4 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 disabled:opacity-40"
+          >
+            Berikutnya ➡️
+          </button>
+        </div>
+
+        <button
+          id="btnCheckAnswer"
+          type="button"
+          class="btn-bubble px-6 py-3 rounded-2xl font-extrabold text-sm sm:text-base bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-md hover:from-sky-700 hover:to-blue-700"
+        >
+          ✅ Periksa Jawaban
+        </button>
+      </div>
+    </main>
+
+    <!-- 4. REKAP NILAI AKHIR (MUNCUL SAAT DIKLIK "SELESAIKAN & LIHAT REKAP NILAI") -->
+    <section id="summarySection" class="hidden game-card print-only-card rounded-3xl p-5 sm:p-7 space-y-6 border-t-4 border-t-emerald-500">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 pb-4">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-extrabold uppercase tracking-wider mb-1">
+            Laporan Hasil Kuis SAS Ganjil
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">
+            Rekap Nilai — <span id="summaryStudentName" class="text-sky-700">Peserta Didik</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-medium">
+            SD Negeri Sari Kalampa • Mata Pelajaran: Bahasa Indonesia Kelas V • Skala Nilai 0–100
+          </p>
+        </div>
+
+        <div class="flex items-center gap-4 bg-gradient-to-br from-emerald-50 to-sky-50 border-2 border-emerald-200 rounded-2xl px-5 py-3">
+          <div class="text-center">
+            <div class="text-xs font-bold text-slate-500 uppercase">Total Skor</div>
+            <div id="summaryRawScore" class="text-2xl font-extrabold text-slate-800">0 / 50</div>
+          </div>
+          <div class="h-10 w-px bg-slate-200"></div>
+          <div class="text-center">
+            <div class="text-xs font-bold text-emerald-700 uppercase">Nilai Akhir</div>
+            <div id="summaryFinalGrade" class="text-3xl font-extrabold text-emerald-600">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Predicate & Encouragement Banner -->
+      <div id="summaryPredicateBox" class="rounded-2xl p-4 bg-amber-50 border-2 border-amber-200 text-slate-800 text-sm sm:text-base font-semibold"></div>
+
+      <!-- Breakdown Table per Section -->
+      <div class="overflow-x-auto rounded-2xl border border-slate-200">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-slate-100 text-slate-700 font-extrabold">
+              <th class="p-3 border-b border-slate-200">Bagian Soal</th>
+              <th class="p-3 border-b border-slate-200 text-center">Nomor</th>
+              <th class="p-3 border-b border-slate-200 text-center">Diperiksa</th>
+              <th class="p-3 border-b border-slate-200 text-center">Skor Diperoleh</th>
+              <th class="p-3 border-b border-slate-200 text-center">Skor Maksimal</th>
+            </tr>
+          </thead>
+          <tbody id="summaryBreakdownBody" class="divide-y divide-slate-100 bg-white">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Download & Print Actions -->
+      <div class="flex flex-wrap items-center justify-end gap-3 no-print">
+        <button
+          id="btnBackToQuestions"
+          type="button"
+          class="btn-bubble px-4 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200"
+        >
+          📝 Kembali ke Soal
+        </button>
+        <button
+          id="btnDownloadReport"
+          type="button"
+          class="btn-bubble px-4 py-2.5 rounded-xl font-bold text-sm bg-sky-600 text-white hover:bg-sky-700 shadow-sm"
+        >
+          ⬇️ Unduh Ringkasan (.TXT)
+        </button>
+        <button
+          id="btnPrintReport"
+          type="button"
+          class="btn-bubble px-4 py-2.5 rounded-xl font-bold text-sm bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm"
+        >
+          🖨️ Cetak Ringkasan
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    /**
+     * Seluruh 30 butir soal SAS Ganjil Bahasa Indonesia Kelas V SD Negeri Sari Kalampa (Kec. Woha, Kab. Bima)
+     * Terintegrasi dengan tempat, kuliner, dan budaya lokal Bima secara alami dan ramah anak SD.
+     * Proporsi kesukaran: 15 Mudah (50%), 9 Sedang (30%), 6 Sulit (20%).
+     * Masing-masing bentuk soal memiliki 1 soal HOTS (No. 15, 17, 20, 25, 30).
+     */
+    const QUESTIONS = [
+      // ================= PILIHAN GANDA BIASA (1 - 15) | Maks: 1 poin/soal =================
+      {
+        id: 1,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab I: Aku yang Unik",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Di SD Negeri Sari Kalampa, Kecamatan Woha, Kabupaten Bima, Farida selalu menyapa guru dan teman dengan salam hangat serta senyum ramah. Ia juga gemar membantu teman membawakan buku ke perpustakaan.",
+        prompt: "Sifat yang dimiliki Farida berdasarkan cerita tersebut adalah ....",
+        options: [
+          { key: "A", text: "pemalu dan pendiam" },
+          { key: "B", text: "ramah dan suka menolong" },
+          { key: "C", text: "keras kepala dan mandiri" },
+          { key: "D", text: "pelupa dan ceroboh" }
+        ],
+        answer: "B",
+        keyDisplay: "B. ramah dan suka menolong",
+        explanation: "Dalam cerita dijelaskan Farida menyapa dengan senyum ramah dan gemar membantu teman, sehingga sifatnya adalah ramah dan suka menolong."
+      },
+      {
+        id: 2,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab I: Aku yang Unik",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Zidan menjadi anak emas di kelas lima SD Negeri Sari Kalampa karena ia selalu mengerjakan tugas tepat waktu dan bersikap sopan kepada siapa saja di lingkungan Woha.",
+        prompt: "Makna ungkapan 'anak emas' pada kalimat di atas adalah ....",
+        options: [
+          { key: "A", text: "anak yang memakai perhiasan emas" },
+          { key: "B", text: "anak yang paling disayangi karena perilakunya baik" },
+          { key: "C", text: "anak yang paling kaya di sekolah" },
+          { key: "D", text: "anak yang selalu menang lomba" }
+        ],
+        answer: "B",
+        keyDisplay: "B. anak yang paling disayangi karena perilakunya baik",
+        explanation: "'Anak emas' merupakan ungkapan yang berarti orang yang paling disayangi atau diistimewakan karena sikap dan perilakunya yang baik."
+      },
+      {
+        id: 3,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab I: Aku yang Unik",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Meskipun bertubuh paling kecil di kelompoknya, Togar memiliki semangat yang berkobar saat berlatih tarian tradisional Bima di halaman SD Negeri Sari Kalampa.",
+        prompt: "Sinonim kata 'berkobar' pada kalimat tersebut adalah ....",
+        options: [
+          { key: "A", text: "padam" },
+          { key: "B", text: "menyala-nyala" },
+          { key: "C", text: "menurun" },
+          { key: "D", text: "ragu-ragu" }
+        ],
+        answer: "B",
+        keyDisplay: "B. menyala-nyala",
+        explanation: "Kata 'berkobar' dalam konteks semangat bermakna menyala-nyala atau sangat menggebu."
+      },
+      {
+        id: 4,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab I: Aku yang Unik",
+        difficulty: "Sedang",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Nadia di Kecamatan Woha sangat hemat dalam menggunakan uang sakunya. Ia menyisihkan uangnya untuk membeli buku cerita dan menabung di rumah.",
+        prompt: "Lawan kata (antonim) dari kata 'hemat' adalah ....",
+        options: [
+          { key: "A", text: "cermat" },
+          { key: "B", text: "boros" },
+          { key: "C", text: "teliti" },
+          { key: "D", text: "pelit" }
+        ],
+        answer: "B",
+        keyDisplay: "B. boros",
+        explanation: "Lawan kata dari hemat (menggunakan uang atau barang secara hati-hati dan tidak berlebihan) adalah boros."
+      },
+      {
+        id: 5,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab II: Buku adalah Jendela Dunia",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Sebelum membaca buku bergambar tentang Pantai Lawata, Dika melihat halaman depan yang memuat judul buku, nama penulis, dan motif tenun Tembe Nggoli.",
+        prompt: "Bagian buku yang dilihat oleh Dika disebut ....",
+        options: [
+          { key: "A", text: "daftar isi" },
+          { key: "B", text: "kover (sampul) buku" },
+          { key: "C", text: "glosarium" },
+          { key: "D", text: "indeks" }
+        ],
+        answer: "B",
+        keyDisplay: "B. kover (sampul) buku",
+        explanation: "Halaman terdepan yang memuat judul buku, penulis, serta ilustrasi atau sampul disebut kover atau sampul buku."
+      },
+      {
+        id: 6,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab II: Buku adalah Jendela Dunia",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Buku 'Sahabat Penyu di Teluk Bima' mengisahkan seekor penyu yang bisa berbicara dan mengajak anak-anak menjaga kebersihan pesisir.",
+        prompt: "Berdasarkan ceritanya, buku tersebut termasuk jenis teks ....",
+        options: [
+          { key: "A", text: "nonfiksi" },
+          { key: "B", text: "fiksi" },
+          { key: "C", text: "berita" },
+          { key: "D", text: "laporan pengamatan" }
+        ],
+        answer: "B",
+        keyDisplay: "B. fiksi",
+        explanation: "Cerita imajinasi atau khayalan seperti hewan yang dapat berbicara merupakan ciri utama teks fiksi."
+      },
+      {
+        id: 7,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab II: Buku adalah Jendela Dunia",
+        difficulty: "Sedang",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Saat menemukan dompet jatuh di dekat perpustakaan SD Negeri Sari Kalampa, Bayu segera menyerahkannya kepada penjaga sekolah agar dikembalikan kepada pemiliknya.",
+        prompt: "Watak tokoh Bayu pada penggalan cerita tersebut adalah ....",
+        options: [
+          { key: "A", text: "jujur dan bertanggung jawab" },
+          { key: "B", text: "cerdik dan licik" },
+          { key: "C", text: "pemalu dan penakut" },
+          { key: "D", text: "sombong dan angkuh" }
+        ],
+        answer: "A",
+        keyDisplay: "A. jujur dan bertanggung jawab",
+        explanation: "Mengembalikan barang temuan kepada pihak yang berwenang menunjukkan sikap jujur dan bertanggung jawab."
+      },
+      {
+        id: 8,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab II: Buku adalah Jendela Dunia",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Lina ingin langsung membaca bacaan tentang 'Keindahan Senja di Pantai Lawata' tanpa harus membuka halaman satu per satu.",
+        prompt: "Bagian buku yang paling tepat membantu Lina menemukan halaman bacaan tersebut adalah ....",
+        options: [
+          { key: "A", text: "daftar pustaka" },
+          { key: "B", text: "daftar isi" },
+          { key: "C", text: "kata pengantar" },
+          { key: "D", text: "biodata penulis" }
+        ],
+        answer: "B",
+        keyDisplay: "B. daftar isi",
+        explanation: "Daftar isi memuat urutan judul bab atau topik beserta nomor halamannya sehingga memudahkan pencarian bacaan."
+      },
+      {
+        id: 9,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab II: Buku adalah Jendela Dunia",
+        difficulty: "Sedang",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Sebuah buku pengetahuan di perpustakaan menjelaskan bahwa membaca minimal 15 menit setiap hari dapat memperkaya kosakata dan melatih konsentrasi siswa.",
+        prompt: "Manfaat utama dari kebiasaan membaca sesuai teks tersebut adalah ....",
+        options: [
+          { key: "A", text: "membuat mata cepat lelah" },
+          { key: "B", text: "menambah kosakata dan melatih konsentrasi" },
+          { key: "C", text: "mengurangi waktu bermain bersama keluarga" },
+          { key: "D", text: "menggantikan seluruh pelajaran di kelas" }
+        ],
+        answer: "B",
+        keyDisplay: "B. menambah kosakata dan melatih konsentrasi",
+        explanation: "Informasi tersurat dalam teks menyebutkan bahwa membaca rutin memperkaya kosakata dan melatih konsentrasi."
+      },
+      {
+        id: 10,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab III: Ekspresi Diri melalui Hobi",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Salsa melukis pemandangan Gunung Api Sangiang, sedangkan adiknya belajar melipat Rimpu bersama nenek di rumah.",
+        prompt: "Kata hubung yang menunjukkan perbandingan/pertentangan pada kalimat tersebut adalah ....",
+        options: [
+          { key: "A", text: "dan" },
+          { key: "B", text: "sedangkan" },
+          { key: "C", text: "karena" },
+          { key: "D", text: "sehingga" }
+        ],
+        answer: "B",
+        keyDisplay: "B. sedangkan",
+        explanation: "Kata hubung 'sedangkan' digunakan untuk menghubungkan dua hal yang setara namun berbeda atau dipertentangkan."
+      },
+      {
+        id: 11,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab III: Ekspresi Diri melalui Hobi",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Setiap sore di Woha, Andre berlatih menari tradisional Bima agar gerakan tangannya lentur dan selaras dengan irama musik daerah.",
+        prompt: "Kata 'lentur' dalam kalimat tersebut memiliki arti ....",
+        options: [
+          { key: "A", text: "kaku dan keras" },
+          { key: "B", text: "mudah digerakkan dan tidak kaku" },
+          { key: "C", text: "panjang dan kurus" },
+          { key: "D", text: "cepat lelah" }
+        ],
+        answer: "B",
+        keyDisplay: "B. mudah digerakkan dan tidak kaku",
+        explanation: "Dalam konteks gerak tubuh atau tangan saat menari, lentur berarti mudah digerakkan dan tidak kaku."
+      },
+      {
+        id: 12,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab III: Ekspresi Diri melalui Hobi",
+        difficulty: "Sedang",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Raka sedang menuliskan cerita tentang gotong royong warga Bima di buku catatannya setelah berlatih seni.",
+        prompt: "Kata dasar dari kata berimbuhan 'menuliskan' adalah ....",
+        options: [
+          { key: "A", text: "tulis" },
+          { key: "B", text: "lukis" },
+          { key: "C", text: "lis" },
+          { key: "D", text: "tulisan" }
+        ],
+        answer: "A",
+        keyDisplay: "A. tulis",
+        explanation: "Kata 'menuliskan' berasal dari kata dasar 'tulis' yang mendapat awalan me- dan akhiran -kan."
+      },
+      {
+        id: 13,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab IV: Belajar Berwirausaha",
+        difficulty: "Sedang",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Kelompok siswa kelas 5 SD Negeri Sari Kalampa membuat bingkai foto bermotif Tembe Nggoli untuk dijual saat bazar sekolah di Woha.",
+        prompt: "Kegiatan membuat barang untuk dijual demi memperoleh keuntungan disebut ....",
+        options: [
+          { key: "A", text: "berwirausaha" },
+          { key: "B", text: "berlibur" },
+          { key: "C", text: "bertamasya" },
+          { key: "D", text: "berolahraga" }
+        ],
+        answer: "A",
+        keyDisplay: "A. berwirausaha",
+        explanation: "Berwirausaha adalah kegiatan menciptakan produk atau jasa dan menjualnya untuk memperoleh nilai tambah atau keuntungan."
+      },
+      {
+        id: 14,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab IV: Belajar Berwirausaha",
+        difficulty: "Sedang",
+        hots: false,
+        maxScore: 1,
+        stimulus: "Di stan bazar SD Negeri Sari Kalampa, Tim 'Bingka Doloe Woha' memasang poster bergambar kue Bingka Doloe yang manis dan harum.",
+        prompt: "Kalimat promosi yang paling tepat dan menarik untuk dipasang pada poster tersebut adalah ....",
+        options: [
+          { key: "A", text: "Bingka Doloe ini dibuat kemarin pagi." },
+          { key: "B", text: "Ayo cicipi Bingka Doloe khas Bima yang lembut dan manis, cuma lima ribuan!" },
+          { key: "C", text: "Siapa yang tidak suka Bingka Doloe silakan lewat saja." },
+          { key: "D", text: "Bahan utama kue ini adalah tepung dan gula merah." }
+        ],
+        answer: "B",
+        keyDisplay: "B. Ayo cicipi Bingka Doloe khas Bima yang lembut dan manis, cuma lima ribuan!",
+        explanation: "Kalimat persuasif menggunakan kata ajakan ('Ayo') serta menonjolkan keistimewaan kuliner lokal Bima dan harga agar pembeli tertarik."
+      },
+      {
+        id: 15,
+        section: "PG",
+        sectionLabel: "Pilihan Ganda Biasa",
+        chapter: "Bab IV: Belajar Berwirausaha",
+        difficulty: "Sulit",
+        hots: true,
+        maxScore: 1,
+        stimulus: "Catatan Bazar Kelas 5 di Woha:\n• Es Kelapa Mangga Bima: terjual 25 gelas (sisa 0 gelas)\n• Bingka Doloe Hangat: terjual 22 potong (sisa 0 potong)\n• Puding Mangga Bima: terjual 6 cup (sisa 14 cup)\nCuaca siang hari di Woha sangat terik dan panas.",
+        prompt: "Berdasarkan data penjualan dan kondisi cuaca Bima pada stimulus, keputusan paling tepat untuk bazar berikutnya adalah ....",
+        options: [
+          { key: "A", text: "menghentikan penjualan minuman segar dan memperbanyak puding mangga" },
+          { key: "B", text: "menambah jumlah Es Kelapa Mangga Bima serta mengevaluasi rasa atau kemasan Puding Mangga" },
+          { key: "C", text: "menjual semua produk dengan harga dua kali lipat tanpa mengubah jumlah produksi" },
+          { key: "D", text: "mengurangi jumlah Bingka Doloe karena tidak laku" }
+        ],
+        answer: "B",
+        keyDisplay: "B. menambah jumlah Es Kelapa Mangga Bima serta mengevaluasi rasa atau kemasan Puding Mangga",
+        explanation: "Es Kelapa Mangga Bima dan Bingka Doloe habis terjual (permintaan tinggi dan cuaca terik), sedangkan Puding Mangga banyak tersisa. Maka perlu menambah stok minuman segar dan mengevaluasi puding."
+      },
+
+      // ================= PILIHAN GANDA KOMPLEKS (16 - 18) | Maks: 2 poin/soal =================
+      {
+        id: 16,
+        section: "PGK",
+        sectionLabel: "Pilihan Ganda Kompleks",
+        chapter: "Bab I: Aku yang Unik",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 2,
+        stimulus: "Setiap anak di kelas 5 SD Negeri Sari Kalampa memiliki keunikan masing-masing. Ada yang pandai bercerita tentang Pantai Lawata, ada yang cepat berhitung, ada yang suka menggambar motif Tembe Nggoli, dan ada yang mahir bermain bola di lapangan sekolah.",
+        prompt: "Centang dua (2) pernyataan yang paling sesuai dengan teks!",
+        options: [
+          { key: "P1", text: "Setiap anak memiliki kelebihan atau keunikan yang berbeda-beda." },
+          { key: "P2", text: "Semua siswa di kelas 5 harus memiliki keahlian yang sama persis." },
+          { key: "P3", text: "Keunikan seseorang bisa tampak pada kemampuan atau kegemarannya." },
+          { key: "P4", text: "Siswa yang pandai bercerita tidak boleh memiliki hobi lain." }
+        ],
+        answer: ["P1", "P3"],
+        keyDisplay: "Pernyataan 1 & Pernyataan 3",
+        explanation: "Teks menegaskan bahwa setiap anak memiliki keunikan masing-masing (Pernyataan 1) yang tampak seperti pandai bercerita atau suka menggambar (Pernyataan 3)."
+      },
+      {
+        id: 17,
+        section: "PGK",
+        sectionLabel: "Pilihan Ganda Kompleks",
+        chapter: "Bab II: Buku adalah Jendela Dunia",
+        difficulty: "Sulit",
+        hots: true,
+        maxScore: 2,
+        stimulus: "Rina membaca buku 'Ensiklopedia Gunung Api & Alam Bima' untuk tugas IPA, sedangkan Lala membaca cerita rakyat 'Asal-Usul Teluk Bima' di perpustakaan sebelum pulang.",
+        prompt: "Centang dua (2) simpulan yang paling tepat berdasarkan ilustrasi tersebut!",
+        options: [
+          { key: "P1", text: "Buku Rina tergolong bacaan nonfiksi karena berisi fakta pengetahuan alam." },
+          { key: "P2", text: "Buku Lala berisi tabel data cuaca harian seluruh Kecamatan Woha." },
+          { key: "P3", text: "Keduanya sama-sama memanfaatkan buku untuk memperluas wawasan dan pengalaman membaca." },
+          { key: "P4", text: "Buku cerita daerah tidak memiliki manfaat apa pun bagi siswa." }
+        ],
+        answer: ["P1", "P3"],
+        keyDisplay: "Pernyataan 1 & Pernyataan 3",
+        explanation: "Ensiklopedia bersifat faktual/nonfiksi (Pernyataan 1), dan membaca kedua jenis buku sama-sama menambah wawasan serta pengalaman literasi (Pernyataan 3)."
+      },
+      {
+        id: 18,
+        section: "PGK",
+        sectionLabel: "Pilihan Ganda Kompleks",
+        chapter: "Bab III: Ekspresi Diri melalui Hobi",
+        difficulty: "Sedang",
+        hots: false,
+        maxScore: 2,
+        stimulus: "Menyalurkan hobi dengan baik dapat melatih keterampilan, menumbuhkan rasa percaya diri, dan melestarikan budaya lokal seperti Rimpu dan tarian Bima secara positif.",
+        prompt: "Centang dua (2) contoh kegiatan yang menunjukkan penyaluran hobi secara positif!",
+        options: [
+          { key: "P1", text: "Berlatih tari tradisional Bima untuk tampil pada pentas seni sekolah." },
+          { key: "P2", text: "Bermain gawai hingga larut malam dan lupa mengerjakan PR." },
+          { key: "P3", text: "Membuat kolase pola hias Tembe Nggoli pada waktu luang." },
+          { key: "P4", text: "Mengganggu teman yang sedang berlatih menyanyi atau menari." }
+        ],
+        answer: ["P1", "P3"],
+        keyDisplay: "Pernyataan 1 & Pernyataan 3",
+        explanation: "Berlatih tari tradisional untuk pentas seni dan membuat kolase pola Tembe Nggoli merupakan penyaluran hobi positif yang melatih keterampilan serta budaya."
+      },
+
+      // ================= BENAR DAN SALAH (19 - 20) | Maks: 2 poin/soal =================
+      {
+        id: 19,
+        section: "BS",
+        sectionLabel: "Benar dan Salah",
+        chapter: "Bab IV: Belajar Berwirausaha",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 2,
+        stimulus: "Saat berjualan Uta Palumara dan kue di kegiatan gelar karya Woha, seorang wirausahawan cilik perlu bersikap jujur saat menghitung uang dan melayani pembeli dengan sopan.",
+        prompt: "Tentukan apakah setiap pernyataan berikut Benar atau Salah!",
+        statements: [
+          {
+            id: "s1",
+            text: "Kejujuran dalam menghitung uang membantu menjaga kepercayaan pembeli.",
+            answer: "Benar"
+          },
+          {
+            id: "s2",
+            text: "Bersikap kasar kepada pembeli akan membuat dagangan cepat laris.",
+            answer: "Salah"
+          }
+        ],
+        keyDisplay: "Pernyataan 1: Benar • Pernyataan 2: Salah",
+        explanation: "Kejujuran menjaga kepercayaan pembeli (Benar), sedangkan bersikap kasar justru membuat pembeli tidak nyaman (Salah)."
+      },
+      {
+        id: 20,
+        section: "BS",
+        sectionLabel: "Benar dan Salah",
+        chapter: "Bab III: Ekspresi Diri melalui Hobi",
+        difficulty: "Sulit",
+        hots: true,
+        maxScore: 2,
+        stimulus: "Damar gemar menulis cerita tentang tradisi gotong royong di Bima. Gurunya menyarankan agar Damar mengikuti lomba menulis cerita anak tingkat kabupaten.",
+        prompt: "Tentukan apakah setiap pernyataan berikut Benar atau Salah berdasarkan penalaran!",
+        statements: [
+          {
+            id: "s1",
+            text: "Mengikuti lomba menulis dapat menjadi sarana menguji kemampuan dan mengasah bakat Damar.",
+            answer: "Benar"
+          },
+          {
+            id: "s2",
+            text: "Jika Damar belum juara pada lomba pertama, berarti hobinya tidak layak dikembangkan lagi.",
+            answer: "Salah"
+          }
+        ],
+        keyDisplay: "Pernyataan 1: Benar • Pernyataan 2: Salah",
+        explanation: "Lomba melatih mental dan mengasah bakat menulis (Benar). Belum juara pada lomba pertama bukan alasan menghentikan hobi (Salah)."
+      },
+
+      // ================= ISIAN SINGKAT (21 - 25) | Maks: 2 poin/soal =================
+      {
+        id: 21,
+        section: "ISIAN",
+        sectionLabel: "Isian Singkat",
+        chapter: "Bab I: Aku yang Unik",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 2,
+        stimulus: "Setiap siswa di SD Negeri Sari Kalampa memiliki sidik jari dan kelebihan berbeda, seperti mahir bercerita tentang Pantai Lawata atau cepat berhitung.",
+        prompt: "Kata yang tepat untuk menyebut ciri khas yang membedakan seseorang dari orang lain adalah ....",
+        acceptedAnswers: ["keunikan", "ciri khas", "unik"],
+        keyDisplay: "keunikan (atau ciri khas)",
+        explanation: "Keunikan atau ciri khas adalah sifat atau keadaan khusus yang membedakan seseorang dari orang lain."
+      },
+      {
+        id: 22,
+        section: "ISIAN",
+        sectionLabel: "Isian Singkat",
+        chapter: "Bab II: Buku adalah Jendela Dunia",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 2,
+        stimulus: "Ketika membaca buku tentang budaya Bima di perpustakaan, Galih menemukan istilah 'Tembe Nggoli' dan 'Rimpu' yang artinya dijelaskan di bagian akhir buku.",
+        prompt: "Bagian buku yang memuat daftar kata beserta artinya (seperti kamus kecil di akhir buku) disebut ....",
+        acceptedAnswers: ["glosarium"],
+        keyDisplay: "glosarium",
+        explanation: "Glosarium adalah daftar kata atau istilah penting beserta penjelasannya yang umumnya terletak di bagian akhir buku."
+      },
+      {
+        id: 23,
+        section: "ISIAN",
+        sectionLabel: "Isian Singkat",
+        chapter: "Bab III: Ekspresi Diri melalui Hobi",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 2,
+        stimulus: "Budi suka menggambar pemandangan Gunung Api Sangiang, ... kakaknya lebih suka berlatih menari tradisi Bima.",
+        prompt: "Kata hubung yang tepat untuk melengkapi kalimat tersebut adalah ....",
+        acceptedAnswers: ["sedangkan", "tetapi"],
+        keyDisplay: "sedangkan (atau tetapi)",
+        explanation: "Kata hubung 'sedangkan' atau 'tetapi' tepat digunakan untuk menghubungkan dua hal yang berbeda atau dipertentangkan."
+      },
+      {
+        id: 24,
+        section: "ISIAN",
+        sectionLabel: "Isian Singkat",
+        chapter: "Bab IV: Belajar Berwirausaha",
+        difficulty: "Sedang",
+        hots: false,
+        maxScore: 2,
+        stimulus: "Sebelum hari gelar karya di Woha, siswa kelas 5 membuat pamflet dan memperkenalkan camilan Bingka Doloe ke kelas-kelas lain.",
+        prompt: "Kegiatan memperkenalkan dan menawarkan produk kepada calon pembeli disebut ....",
+        acceptedAnswers: ["promosi", "pemasaran", "mempromosikan"],
+        keyDisplay: "promosi (atau pemasaran)",
+        explanation: "Memperkenalkan dan menawarkan produk kepada calon pembeli disebut promosi atau pemasaran."
+      },
+      {
+        id: 25,
+        section: "ISIAN",
+        sectionLabel: "Isian Singkat",
+        chapter: "Bab IV: Belajar Berwirausaha",
+        difficulty: "Sulit",
+        hots: true,
+        maxScore: 2,
+        stimulus: "Modal membeli bahan membuat olahan Mangga Bima dan minuman segar adalah Rp40.000,00. Seluruh dagangan terjual dan uang yang terkumpul Rp65.000,00.",
+        prompt: "Besar keuntungan bersih yang diperoleh dari penjualan tersebut adalah Rp....",
+        acceptedAnswers: ["25000", "25.000", "25.000,00", "25000,00", "dua puluh lima ribu"],
+        keyDisplay: "25.000,00 (dua puluh lima ribu rupiah)",
+        explanation: "Keuntungan bersih = Pendapatan - Modal = Rp65.000,00 - Rp40.000,00 = Rp25.000,00."
+      },
+
+      // ================= ESSAY / URAIAN (26 - 30) | Maks: 3 poin/soal =================
+      {
+        id: 26,
+        section: "ESSAY",
+        sectionLabel: "Essay / Uraian",
+        chapter: "Bab I: Aku yang Unik",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 3,
+        stimulus: "Di kelas 5 SD Negeri Sari Kalampa, ada siswa yang mahir menjelaskan sejarah Pantai Lawata dan ada pula yang lebih nyaman mengekspresikan diri lewat menggambar motif Rimpu atau Tembe Nggoli.",
+        prompt: "Tuliskan 2 contoh sikap menghargai perbedaan keunikan teman di sekolah!",
+        keywords: ["mengejek", "menghina", "meremehkan", "menghargai", "menghormati", "kesempatan", "mendukung", "berbeda", "keunikan", "rukun"],
+        keyDisplay: "Contoh: (1) Tidak mengejek atau meremehkan kemampuan teman yang berbeda; (2) Memberi kesempatan yang sama kepada teman untuk berkarya sesuai kemampuannya.",
+        explanation: "Menghargai keunikan teman diwujudkan dengan tidak mencela perbedaan serta saling mendukung potensi dan kerukunan di sekolah.",
+        rubricNote: "Skor 3: Memuat 2 contoh sikap menghargai yang jelas dan tepat. Skor 2: Memuat 1 contoh tepat atau 2 contoh kurang lengkap. Skor 1: Jawaban kurang tepat/terlalu singkat. Skor 0: Kosong/tidak relevan."
+      },
+      {
+        id: 27,
+        section: "ESSAY",
+        sectionLabel: "Essay / Uraian",
+        chapter: "Bab II: Buku adalah Jendela Dunia",
+        difficulty: "Mudah",
+        hots: false,
+        maxScore: 3,
+        stimulus: "Di perpustakaan SD Negeri Sari Kalampa terpajang semboyan 'Buku adalah Jendela Dunia' di dekat rak bacaan tentang Woha, Bima, dan pengetahuan umum.",
+        prompt: "Jelaskan makna ungkapan 'buku adalah jendela dunia' dengan bahasamu sendiri!",
+        keywords: ["informasi", "pengetahuan", "ilmu", "wawasan", "dunia", "membaca", "mengetahui", "peristiwa", "melihat", "bima"],
+        keyDisplay: "Ungkapan tersebut berarti bahwa dengan membaca buku, kita dapat mengetahui berbagai informasi, peristiwa, dan pengetahuan yang luas meskipun hanya berada di tempat kita.",
+        explanation: "Sebagaimana jendela membuka pandangan ke luar, buku membuka wawasan pembaca terhadap beragam ilmu dan peristiwa.",
+        rubricNote: "Skor 3: Menjelaskan makna membuka wawasan/pengetahuan/informasi luas dengan bahasa sendiri secara runtut. Skor 2: Makna benar namun kurang lengkap. Skor 1: Kurang tepat. Skor 0: Kosong."
+      },
+      {
+        id: 28,
+        section: "ESSAY",
+        sectionLabel: "Essay / Uraian",
+        chapter: "Bab III: Ekspresi Diri melalui Hobi",
+        difficulty: "Sedang",
+        hots: false,
+        maxScore: 3,
+        stimulus: "Hobi yang ditekuni dengan rutin dapat membantu seseorang mengekspresikan perasaan sekaligus melatih ketekunan dan kecintaan pada budaya.",
+        prompt: "Buatlah 2 kalimat tentang hobimu sendiri (boleh dikaitkan dengan seni, budaya Bima, atau kegiatan sehari-hari) dan manfaat yang kamu rasakan saat melakukannya!",
+        keywords: ["hobi", "saya", "manfaat", "melatih", "senang", "tenang", "keterampilan", "sabar", "tekun", "menggambar", "menulis", "membaca", "menyanyi", "menari", "rimpu", "tenun", "bima"],
+        keyDisplay: "Contoh: Hobi saya adalah menggambar motif tenun Mbojo dan pemandangan Pantai Lawata. Kegiatan ini membuat hati saya senang sekaligus melatih ketekunan serta kesabaran.",
+        explanation: "Jawaban yang baik memuat penyebutan hobi secara jelas dan manfaat positif yang dirasakan dalam kalimat yang runtut.",
+        rubricNote: "Skor 3: Menyusun 2 kalimat efektif yang menyebutkan hobi dan manfaatnya secara jelas. Skor 2: Menyebutkan hobi dan manfaat tetapi kurang runtut/1 kalimat. Skor 1: Kurang sesuai. Skor 0: Kosong."
+      },
+      {
+        id: 29,
+        section: "ESSAY",
+        sectionLabel: "Essay / Uraian",
+        chapter: "Bab IV: Belajar Berwirausaha",
+        difficulty: "Sulit",
+        hots: false,
+        maxScore: 3,
+        stimulus: "Kelompok siswa di Woha menjual kuliner khas seperti Bingka Doloe atau camilan berbahan Mangga Bima dan ikan segar ala Uta Palumara pada acara sekolah.",
+        prompt: "Mengapa menjaga kebersihan kemasan dan kualitas rasa sangat penting dalam berwirausaha makanan? Jelaskan alasanmu!",
+        keywords: ["bersih", "kebersihan", "sehat", "kesehatan", "rasa", "enak", "kualitas", "pembeli", "kepercayaan", "pelanggan", "kembali", "aman", "segar"],
+        keyDisplay: "Karena kebersihan kemasan dan rasa yang enak menjaga kesehatan pembeli serta membuat pembeli puas sehingga percaya dan ingin membeli kembali.",
+        explanation: "Kebersihan dan kualitas rasa menjaga kesehatan konsumen sekaligus menumbuhkan kepercayaan agar usaha berkelanjutan.",
+        rubricNote: "Skor 3: Menjelaskan alasan logis terkait kesehatan/keamanan dan kepuasan/kepercayaan pembeli. Skor 2: Menyebutkan salah satu alasan dengan cukup jelas. Skor 1: Alasan kurang tepat. Skor 0: Kosong."
+      },
+      {
+        id: 30,
+        section: "ESSAY",
+        sectionLabel: "Essay / Uraian",
+        chapter: "Bab IV: Belajar Berwirausaha",
+        difficulty: "Sulit",
+        hots: true,
+        maxScore: 3,
+        stimulus: "Kelas 5 SD Negeri Sari Kalampa di Kecamatan Woha akan mengadakan gelar karya wirausaha bertema 'Kreatif & Ramah Lingkungan' dengan memanfaatkan bahan lokal atau barang bekas di sekitar lingkungan sekolah dan pesisir/perbukitan Bima.",
+        prompt: "Rancanglah 1 ide produk ramah lingkungan atau berbasis potensi lokal Bima yang bisa dibuat siswa kelas 5, lalu jelaskan alasan mengapa produk tersebut layak dijual!",
+        keywords: ["botol", "daun", "plastik", "ramah lingkungan", "limbah", "sampah", "pot", "hiasan", "kolase", "kerajinan", "murah", "bermanfaat", "menarik", "layak", "dijual", "bima", "woha", "mangga", "bingka", "tenun", "rimpu"],
+        keyDisplay: "Contoh: Ide produk pot tanaman hias dari botol plastik bekas yang dihias motif tenun Bima atau camilan sehat berbahan Mangga Bima berkemasan ramah lingkungan. Alasannya: memanfaatkan potensi/limbah sekitar secara kreatif, biaya bahannya terjangkau, dan menarik minat pembeli.",
+        explanation: "Soal HOTS menuntut siswa merancang ide produk yang kreatif dan relevan dengan konteks lokal/ramah lingkungan serta memberi alasan kelayakan jual yang logis.",
+        rubricNote: "Skor 3: Merancang 1 ide produk kreatif/ramah lingkungan/lokal + alasan kelayakan jual yang logis. Skor 2: Ada ide produk dan alasan namun kurang lengkap. Skor 1: Kurang sesuai konteks. Skor 0: Kosong."
+      }
+    ];
+
+    const SECTIONS = [
+      { code: "ALL", label: "Semua (1–30)", ids: QUESTIONS.map(q => q.id) },
+      { code: "PG", label: "PG Biasa (1–15)", ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] },
+      { code: "PGK", label: "PG Kompleks (16–18)", ids: [16,17,18] },
+      { code: "BS", label: "Benar/Salah (19–20)", ids: [19,20] },
+      { code: "ISIAN", label: "Isian (21–25)", ids: [21,22,23,24,25] },
+      { code: "ESSAY", label: "Essay (26–30)", ids: [26,27,28,29,30] }
+    ];
+
+    // Application State
+    const state = {
+      studentName: "",
+      activeSection: "ALL",
+      currentQuestionId: 1,
+      streak: 0,
+      answers: {},       // { [id]: answerValue }
+      checked: {},       // { [id]: boolean }
+      scores: {}         // { [id]: number }
+    };
+
+    // DOM Elements
+    const els = {
+      studentNameInput: document.getElementById("studentNameInput"),
+      checkedCountText: document.getElementById("checkedCountText"),
+      liveScoreText: document.getElementById("liveScoreText"),
+      streakCountText: document.getElementById("streakCountText"),
+      progressBarFill: document.getElementById("progressBarFill"),
+      sectionTabs: document.getElementById("sectionTabs"),
+      questionNavigator: document.getElementById("questionNavigator"),
+      toastBanner: document.getElementById("toastBanner"),
+      toastMessage: document.getElementById("toastMessage"),
+      toastClose: document.getElementById("toastClose"),
+      questionStage: document.getElementById("questionStage"),
+      qNumberBadge: document.getElementById("qNumberBadge"),
+      qSectionBadge: document.getElementById("qSectionBadge"),
+      qChapterBadge: document.getElementById("qChapterBadge"),
+      qDifficultyBadge: document.getElementById("qDifficultyBadge"),
+      qHotsBadge: document.getElementById("qHotsBadge"),
+      qMaxScoreBadge: document.getElementById("qMaxScoreBadge"),
+      qStimulusText: document.getElementById("qStimulusText"),
+      qPromptText: document.getElementById("qPromptText"),
+      qInstructionHint: document.getElementById("qInstructionHint"),
+      qInteractionArea: document.getElementById("qInteractionArea"),
+      qFeedbackBox: document.getElementById("qFeedbackBox"),
+      qFeedbackTitle: document.getElementById("qFeedbackTitle"),
+      qEarnedPointsBadge: document.getElementById("qEarnedPointsBadge"),
+      qKeyAnswerText: document.getElementById("qKeyAnswerText"),
+      qExplanationText: document.getElementById("qExplanationText"),
+      btnPrevQuestion: document.getElementById("btnPrevQuestion"),
+      btnNextQuestion: document.getElementById("btnNextQuestion"),
+      btnCheckAnswer: document.getElementById("btnCheckAnswer"),
+      btnResetQuiz: document.getElementById("btnResetQuiz"),
+      btnFinishQuiz: document.getElementById("btnFinishQuiz"),
+      summarySection: document.getElementById("summarySection"),
+      summaryStudentName: document.getElementById("summaryStudentName"),
+      summaryRawScore: document.getElementById("summaryRawScore"),
+      summaryFinalGrade: document.getElementById("summaryFinalGrade"),
+      summaryPredicateBox: document.getElementById("summaryPredicateBox"),
+      summaryBreakdownBody: document.getElementById("summaryBreakdownBody"),
+      btnBackToQuestions: document.getElementById("btnBackToQuestions"),
+      btnDownloadReport: document.getElementById("btnDownloadReport"),
+      btnPrintReport: document.getElementById("btnPrintReport")
+    };
+
+    function showToast(message, type = "info") {
+      const palette = {
+        info: "bg-sky-100 text-sky-900 border-sky-300",
+        warn: "bg-amber-100 text-amber-900 border-amber-300",
+        success: "bg-emerald-100 text-emerald-900 border-emerald-300"
+      };
+      els.toastBanner.className = `rounded-2xl px-4 py-3 text-sm font-bold border-2 shadow-sm flex items-center justify-between gap-3 no-print ${palette[type] || palette.info}`;
+      els.toastMessage.textContent = message;
+      els.toastBanner.classList.remove("hidden");
+    }
+
+    function hideToast() {
+      els.toastBanner.classList.add("hidden");
+    }
+
+    function getVisibleQuestionIds() {
+      const sec = SECTIONS.find(s => s.code === state.activeSection);
+      return sec ? sec.ids : QUESTIONS.map(q => q.id);
+    }
+
+    function isAnswered(q) {
+      const ans = state.answers[q.id];
+      if (!ans) return false;
+      if (q.section === "PG") return typeof ans === "string" && ans.length > 0;
+      if (q.section === "PGK") return Array.isArray(ans) && ans.length > 0;
+      if (q.section === "BS") return typeof ans === "object" && Object.keys(ans).length > 0;
+      if (q.section === "ISIAN" || q.section === "ESSAY") return typeof ans === "string" && ans.trim().length > 0;
+      return false;
+    }
+
+    function getTotalScore() {
+      return Object.values(state.scores).reduce((sum, val) => sum + (Number(val) || 0), 0);
+    }
+
+    function getCheckedCount() {
+      return Object.values(state.checked).filter(Boolean).length;
+    }
+
+    function updateTopStats() {
+      const checkedCount = getCheckedCount();
+      const totalScore = getTotalScore();
+      els.checkedCountText.textContent = `${checkedCount}/${QUESTIONS.length}`;
+      els.liveScoreText.textContent = `${totalScore} / 50`;
+      if (els.streakCountText) {
+        els.streakCountText.textContent = `${state.streak}`;
+      }
+      const pct = Math.round((checkedCount / QUESTIONS.length) * 100);
+      els.progressBarFill.style.width = `${pct}%`;
+    }
+
+    function renderSectionTabs() {
+      els.sectionTabs.querySelectorAll(".sec-tab").forEach(btn => {
+        const code = btn.getAttribute("data-section");
+        if (code === state.activeSection) {
+          btn.className = "sec-tab px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-sky-600 text-white shadow-sm";
+        } else {
+          btn.className = "sec-tab px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-sky-50";
+        }
+      });
+    }
+
+    function renderNavigator() {
+      const visibleIds = getVisibleQuestionIds();
+      els.questionNavigator.innerHTML = "";
+
+      QUESTIONS.forEach(q => {
+        const isVisible = visibleIds.includes(q.id);
+        const isActive = q.id === state.currentQuestionId;
+        const isChecked = !!state.checked[q.id];
+        const answered = isAnswered(q);
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = q.id;
+
+        let classes = "nav-pill h-9 rounded-xl font-bold text-xs flex items-center justify-center border ";
+        if (!isVisible) {
+          classes += "opacity-35 bg-slate-50 text-slate-400 border-slate-200 ";
+        } else if (isActive) {
+          classes += "bg-sky-600 text-white border-sky-700 shadow-sm ring-2 ring-sky-200 ";
+        } else if (isChecked) {
+          classes += "bg-emerald-100 text-emerald-900 border-emerald-400 ";
+        } else if (answered) {
+          classes += "bg-amber-100 text-amber-900 border-amber-300 ";
+        } else {
+          classes += "bg-white text-slate-700 border-slate-200 hover:border-sky-400 ";
+        }
+
+        btn.className = classes;
+        btn.title = `Soal No. ${q.id} (${q.sectionLabel} • ${q.difficulty}${q.hots ? " • HOTS" : ""})`;
+        btn.addEventListener("click", () => {
+          els.summarySection.classList.add("hidden");
+          els.questionStage.classList.remove("hidden");
+          state.currentQuestionId = q.id;
+          renderAll();
+        });
+
+        els.questionNavigator.appendChild(btn);
+      });
+    }
+
+    function difficultyBadgeStyle(diff) {
+      if (diff === "Mudah") return "px-3 py-1 rounded-full font-extrabold text-xs bg-emerald-100 text-emerald-800 border border-emerald-200";
+      if (diff === "Sedang") return "px-3 py-1 rounded-full font-extrabold text-xs bg-amber-100 text-amber-800 border border-amber-200";
+      return "px-3 py-1 rounded-full font-extrabold text-xs bg-rose-100 text-rose-800 border border-rose-200";
+    }
+
+    function renderQuestionStage() {
+      const q = QUESTIONS.find(item => item.id === state.currentQuestionId) || QUESTIONS[0];
+
+      els.qNumberBadge.textContent = `Soal No. ${q.id}`;
+      els.qSectionBadge.textContent = q.sectionLabel;
+      els.qChapterBadge.textContent = q.chapter;
+      els.qDifficultyBadge.className = difficultyBadgeStyle(q.difficulty);
+      els.qDifficultyBadge.textContent = `Level: ${q.difficulty}`;
+      els.qMaxScoreBadge.textContent = `Maks: ${q.maxScore} poin`;
+
+      if (q.hots) {
+        els.qHotsBadge.classList.remove("hidden");
+      } else {
+        els.qHotsBadge.classList.add("hidden");
+      }
+
+      els.qStimulusText.textContent = q.stimulus;
+      els.qPromptText.textContent = `${q.id}. ${q.prompt}`;
+
+      // Render mechanic by section type
+      els.qInteractionArea.innerHTML = "";
+
+      if (q.section === "PG") {
+        els.qInstructionHint.textContent = "Pilih satu huruf jawaban (A, B, C, atau D) yang paling tepat.";
+        const selected = state.answers[q.id] || "";
+
+        q.options.forEach(opt => {
+          const isPicked = selected === opt.key;
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = `btn-bubble w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 flex items-center gap-3.5 transition-all ${
+            isPicked
+              ? "bg-sky-50 border-sky-500 ring-2 ring-sky-200 text-slate-900"
+              : "bg-white border-slate-200 hover:border-sky-300 hover:bg-sky-50/40 text-slate-700"
+          }`;
+
+          btn.innerHTML = `
+            <span class="w-9 h-9 rounded-xl font-display font-bold text-sm flex items-center justify-center shrink-0 ${
+              isPicked ? "bg-sky-600 text-white" : "bg-slate-100 text-slate-700"
+            }">${opt.key}</span>
+            <span class="font-semibold text-sm sm:text-base">${opt.text}</span>
+          `;
+
+          btn.addEventListener("click", () => {
+            state.answers[q.id] = opt.key;
+            if (state.checked[q.id]) {
+              state.checked[q.id] = false;
+              delete state.scores[q.id];
+            }
+            renderAll();
+          });
+
+          els.qInteractionArea.appendChild(btn);
+        });
+      } else if (q.section === "PGK") {
+        els.qInstructionHint.textContent = "Centang tepat 2 pernyataan yang sesuai. (Jika memilih lebih dari 2, centang paling awal akan digeser otomatis).";
+        const currentArr = Array.isArray(state.answers[q.id]) ? [...state.answers[q.id]] : [];
+
+        q.options.forEach((opt, idx) => {
+          const isCheckedBox = currentArr.includes(opt.key);
+          const row = document.createElement("label");
+          row.className = `flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl border-2 cursor-pointer transition-all ${
+            isCheckedBox
+              ? "bg-indigo-50 border-indigo-500 ring-2 ring-indigo-200"
+              : "bg-white border-slate-200 hover:border-indigo-300"
+          }`;
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.checked = isCheckedBox;
+          checkbox.className = "mt-1 w-5 h-5 accent-indigo-600 rounded cursor-pointer shrink-0";
+
+          checkbox.addEventListener("change", () => {
+            let nextArr = Array.isArray(state.answers[q.id]) ? [...state.answers[q.id]] : [];
+            if (checkbox.checked) {
+              if (!nextArr.includes(opt.key)) {
+                nextArr.push(opt.key);
+                if (nextArr.length > 2) {
+                  nextArr.shift();
+                  showToast("Pilihan Ganda Kompleks memilih 2 pernyataan terbaik; pilihan lama diganti otomatis.", "info");
+                }
+              }
+            } else {
+              nextArr = nextArr.filter(item => item !== opt.key);
+            }
+            state.answers[q.id] = nextArr;
+            if (state.checked[q.id]) {
+              state.checked[q.id] = false;
+              delete state.scores[q.id];
+            }
+            renderAll();
+          });
+
+          const textSpan = document.createElement("span");
+          textSpan.className = "text-sm sm:text-base font-semibold text-slate-800 leading-snug";
+          textSpan.textContent = `Pernyataan ${idx + 1}: ${opt.text}`;
+
+          row.appendChild(checkbox);
+          row.appendChild(textSpan);
+          els.qInteractionArea.appendChild(row);
+        });
+      } else if (q.section === "BS") {
+        els.qInstructionHint.textContent = "Pilih 'Benar' atau 'Salah' untuk setiap pernyataan di bawah ini.";
+        const currentObj = typeof state.answers[q.id] === "object" && state.answers[q.id] !== null
+          ? state.answers[q.id]
+          : {};
+
+        q.statements.forEach((st, idx) => {
+          const chosen = currentObj[st.id] || "";
+          const box = document.createElement("div");
+          box.className = "p-4 rounded-2xl border-2 border-slate-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3";
+
+          const stText = document.createElement("p");
+          stText.className = "text-sm sm:text-base font-semibold text-slate-800";
+          stText.textContent = `${idx + 1}. ${st.text}`;
+
+          const btnGroup = document.createElement("div");
+          btnGroup.className = "flex items-center gap-2 shrink-0";
+
+          ["Benar", "Salah"].forEach(val => {
+            const active = chosen === val;
+            const b = document.createElement("button");
+            b.type = "button";
+            b.textContent = val;
+            b.className = `btn-bubble px-4 py-2 rounded-xl font-extrabold text-xs sm:text-sm border-2 ${
+              active
+                ? val === "Benar"
+                  ? "bg-emerald-600 text-white border-emerald-700"
+                  : "bg-rose-600 text-white border-rose-700"
+                : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+            }`;
+
+            b.addEventListener("click", () => {
+              state.answers[q.id] = {
+                ...(typeof state.answers[q.id] === "object" ? state.answers[q.id] : {}),
+                [st.id]: val
+              };
+              if (state.checked[q.id]) {
+                state.checked[q.id] = false;
+                delete state.scores[q.id];
+              }
+              renderAll();
+            });
+
+            btnGroup.appendChild(b);
+          });
+
+          box.appendChild(stText);
+          box.appendChild(btnGroup);
+          els.qInteractionArea.appendChild(box);
+        });
+      } else if (q.section === "ISIAN") {
+        els.qInstructionHint.textContent = "Ketik jawaban singkat dan jelas pada kolom di bawah ini.";
+        const input = document.createElement("input");
+        input.type = "text";
+        input.value = state.answers[q.id] || "";
+        input.placeholder = "Tulis jawaban singkatmu di sini...";
+        input.className = "w-full px-4 py-3 rounded-2xl border-2 border-slate-300 bg-white text-slate-900 font-bold text-sm sm:text-base focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-200";
+
+        input.addEventListener("input", (e) => {
+          state.answers[q.id] = e.target.value;
+          if (state.checked[q.id]) {
+            state.checked[q.id] = false;
+            delete state.scores[q.id];
+            updateTopStats();
+            renderNavigator();
+            renderFeedback(q);
+          }
+        });
+
+        els.qInteractionArea.appendChild(input);
+      } else if (q.section === "ESSAY") {
+        els.qInstructionHint.textContent = "Tuliskan jawaban uraianmu dengan kalimat yang runtut dan jelas. Saat diperiksa, sistem memberi estimasi skor awal & kamu juga bisa menyesuaikan skor rubrik (0–3 poin).";
+        const textarea = document.createElement("textarea");
+        textarea.rows = 4;
+        textarea.value = state.answers[q.id] || "";
+        textarea.placeholder = "Tuliskan jawaban uraianmu di sini...";
+        textarea.className = "w-full px-4 py-3 rounded-2xl border-2 border-slate-300 bg-white text-slate-900 font-medium text-sm sm:text-base leading-relaxed focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-200";
+
+        textarea.addEventListener("input", (e) => {
+          state.answers[q.id] = e.target.value;
+          if (state.checked[q.id]) {
+            state.checked[q.id] = false;
+            delete state.scores[q.id];
+            updateTopStats();
+            renderNavigator();
+            renderFeedback(q);
+          }
+        });
+
+        els.qInteractionArea.appendChild(textarea);
+
+        // Self/Rubric Score Selector (0-3)
+        const rubricBar = document.createElement("div");
+        rubricBar.className = "p-3.5 rounded-2xl bg-amber-50/90 border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2";
+        rubricBar.innerHTML = `
+          <div class="text-xs text-amber-950 font-semibold">
+            <span class="font-extrabold">Skor Rubrik Essay (0–3):</span> ${q.rubricNote}
+          </div>
+        `;
+
+        const scoreBtns = document.createElement("div");
+        scoreBtns.className = "flex items-center gap-1.5 shrink-0";
+        [0, 1, 2, 3].forEach(pts => {
+          const isCurr = state.checked[q.id] && state.scores[q.id] === pts;
+          const sb = document.createElement("button");
+          sb.type = "button";
+          sb.textContent = `${pts} pt`;
+          sb.className = `px-2.5 py-1.5 rounded-xl text-xs font-extrabold border ${
+            isCurr
+              ? "bg-amber-600 text-white border-amber-700"
+              : "bg-white text-amber-900 border-amber-300 hover:bg-amber-100"
+          }`;
+          sb.addEventListener("click", () => {
+            if (!isAnswered(q) && pts > 0) {
+              showToast("Isi terlebih dahulu teks jawaban essay sebelum memberi skor.", "warn");
+              return;
+            }
+            state.checked[q.id] = true;
+            state.scores[q.id] = pts;
+            renderAll();
+          });
+          scoreBtns.appendChild(sb);
+        });
+
+        rubricBar.appendChild(scoreBtns);
+        els.qInteractionArea.appendChild(rubricBar);
+      }
+
+      // Prev / Next button states
+      const idxInAll = QUESTIONS.findIndex(item => item.id === q.id);
+      els.btnPrevQuestion.disabled = idxInAll <= 0;
+      els.btnNextQuestion.disabled = idxInAll >= QUESTIONS.length - 1;
+
+      renderFeedback(q);
+    }
+
+    function evaluateQuestion(q) {
+      if (q.section === "PG") {
+        const chosen = state.answers[q.id] || "";
+        const earned = chosen === q.answer ? q.maxScore : 0;
+        return {
+          earned,
+          status: earned === q.maxScore ? "correct" : "wrong",
+          title: earned === q.maxScore ? "Hebat! Jawabanmu Tepat!" : "Belum Tepat, Yuk Pelajari Pembahasannya!"
+        };
+      }
+
+      if (q.section === "PGK") {
+        const chosen = Array.isArray(state.answers[q.id]) ? state.answers[q.id] : [];
+        const targetSet = new Set(q.answer);
+        const matches = chosen.filter(k => targetSet.has(k)).length;
+        const wrongPicks = chosen.filter(k => !targetSet.has(k)).length;
+
+        let earned = 0;
+        if (matches === 2 && wrongPicks === 0 && chosen.length === 2) {
+          earned = 2;
+        } else if (matches >= 1 && wrongPicks === 0) {
+          earned = 1;
+        } else {
+          earned = 0;
+        }
+
+        return {
+          earned,
+          status: earned === 2 ? "correct" : earned === 1 ? "partial" : "wrong",
+          title:
+            earned === 2
+              ? "Luar Biasa! Kedua Pernyataan Tepat!"
+              : earned === 1
+              ? "Sebagian Tepat! Satu Pernyataan Sudah Benar."
+              : "Belum Tepat! Periksa Kembali Pernyataan yang Dipilih."
+        };
+      }
+
+      if (q.section === "BS") {
+        const chosenObj = typeof state.answers[q.id] === "object" && state.answers[q.id] !== null
+          ? state.answers[q.id]
+          : {};
+        let rightCount = 0;
+        q.statements.forEach(st => {
+          if (chosenObj[st.id] === st.answer) rightCount++;
+        });
+
+        const earned = rightCount; // 2 benar = 2 pt, 1 benar = 1 pt, 0 benar = 0 pt
+        return {
+          earned,
+          status: earned === 2 ? "correct" : earned === 1 ? "partial" : "wrong",
+          title:
+            earned === 2
+              ? "Tepat Sekali! Semua Pernyataan Benar/Salahnya Sesuai!"
+              : earned === 1
+              ? "Lumayan! Satu Pernyataan Sudah Tepat."
+              : "Belum Tepat! Cermati Kembali Tiap Pernyataan."
+        };
+      }
+
+      if (q.section === "ISIAN") {
+        const raw = (state.answers[q.id] || "").toLowerCase().replace(/\s+/g, " ").trim();
+        const cleanedNoRp = raw.replace(/^rp\s*/i, "").replace(/\.00$/, "").trim();
+
+        const isFullMatch = q.acceptedAnswers.some(acc => {
+          const accNorm = acc.toLowerCase().replace(/\s+/g, " ").trim();
+          const accClean = accNorm.replace(/^rp\s*/i, "").replace(/\.00$/, "").trim();
+          return raw === accNorm || cleanedNoRp === accClean || (accNorm.length >= 4 && raw.includes(accNorm));
+        });
+
+        const earned = isFullMatch ? q.maxScore : 0;
+        return {
+          earned,
+          status: earned === q.maxScore ? "correct" : "wrong",
+          title: earned === q.maxScore ? "Tepat! Jawaban Isianmu Benar!" : "Jawaban Isian Belum Sesuai Kunci."
+        };
+      }
+
+      if (q.section === "ESSAY") {
+        const text = (state.answers[q.id] || "").toLowerCase();
+        const words = text.trim().split(/\s+/).filter(Boolean);
+        const matchedKeywords = (q.keywords || []).filter(kw => text.includes(kw.toLowerCase())).length;
+
+        let earned = 0;
+        if (words.length >= 10 && matchedKeywords >= 2) {
+          earned = 3;
+        } else if (words.length >= 5 && matchedKeywords >= 1) {
+          earned = 2;
+        } else if (words.length >= 2) {
+          earned = 1;
+        } else {
+          earned = 0;
+        }
+
+        return {
+          earned,
+          status: earned >= 2 ? "partial" : "wrong",
+          title: `Evaluasi Otomatis Essay: Estimasi ${earned} dari ${q.maxScore} Poin`
+        };
+      }
+
+      return { earned: 0, status: "wrong", title: "Diperiksa" };
+    }
+
+    function renderFeedback(q) {
+      if (!state.checked[q.id]) {
+        els.qFeedbackBox.className = "hidden";
+        return;
+      }
+
+      const earned = state.scores[q.id] ?? 0;
+      const isFull = earned === q.maxScore;
+      const isPartial = earned > 0 && earned < q.maxScore;
+
+      let boxStyle = "bg-rose-50/90 border-rose-300";
+      let titleColor = "text-rose-800";
+      let badgeStyle = "bg-rose-200 text-rose-900";
+      let titleText = earned > 0 ? `Skor Diperoleh: ${earned}/${q.maxScore} Poin` : "Belum Tepat — Perhatikan Pembahasan";
+
+      if (isFull) {
+        boxStyle = "bg-emerald-50/90 border-emerald-300";
+        titleColor = "text-emerald-900";
+        badgeStyle = "bg-emerald-200 text-emerald-900";
+        titleText = `Tepat Sekali! (+${earned}/${q.maxScore} Poin)`;
+      } else if (isPartial) {
+        boxStyle = "bg-amber-50/90 border-amber-300";
+        titleColor = "text-amber-900";
+        badgeStyle = "bg-amber-200 text-amber-900";
+        titleText = `Sebagian Tepat (+${earned}/${q.maxScore} Poin)`;
+      }
+
+      els.qFeedbackBox.className = `rounded-2xl p-4 sm:p-5 border-2 space-y-2.5 ${boxStyle}`;
+      els.qFeedbackTitle.className = `font-display font-bold text-base sm:text-lg ${titleColor}`;
+      els.qFeedbackTitle.textContent = titleText;
+      els.qEarnedPointsBadge.className = `px-3 py-1 rounded-full text-xs sm:text-sm font-extrabold ${badgeStyle}`;
+      els.qEarnedPointsBadge.textContent = `Skor: ${earned} / ${q.maxScore}`;
+
+      els.qKeyAnswerText.innerHTML = `<span class="text-sky-800">Kunci / Acuan Jawaban:</span> ${q.keyDisplay}`;
+      els.qExplanationText.innerHTML = `<span class="font-bold text-slate-800">Pembahasan:</span> ${q.explanation}`;
+    }
+
+    function handleCheckCurrentAnswer() {
+      const q = QUESTIONS.find(item => item.id === state.currentQuestionId) || QUESTIONS[0];
+      if (!isAnswered(q)) {
+        showToast("Silakan isi atau pilih jawaban terlebih dahulu sebelum menekan 'Periksa Jawaban'.", "warn");
+        return;
+      }
+
+      hideToast();
+      const result = evaluateQuestion(q);
+      state.checked[q.id] = true;
+      state.scores[q.id] = result.earned;
+      if (result.earned === q.maxScore) {
+        state.streak += 1;
+      } else if (result.earned === 0) {
+        state.streak = 0;
+      }
+      renderAll();
+    }
+
+    function buildSummaryReportText() {
+      const name = (els.studentNameInput.value || state.studentName || "Peserta Didik").trim();
+      const totalScore = getTotalScore();
+      const finalGrade = Math.round((totalScore / 50) * 100);
+
+      const lines = [
+        "==========================================================",
+        "REKAP NILAI KUIS SAS GANJIL BAHASA INDONESIA KELAS V",
+        "SD NEGERI SARI KALAMPA",
+        "==========================================================",
+        `Nama Siswa : ${name}`,
+        `Total Skor : ${totalScore} / 50`,
+        `Nilai Akhir: ${finalGrade} (Skala 0-100)`,
+        "----------------------------------------------------------",
+        "RINCIAN PER BAGIAN SOAL:"
+      ];
+
+      const groups = [
+        { code: "PG", name: "PG Biasa (No. 1–15)", max: 15 },
+        { code: "PGK", name: "PG Kompleks (No. 16–18)", max: 6 },
+        { code: "BS", name: "Benar/Salah (No. 19–20)", max: 4 },
+        { code: "ISIAN", name: "Isian Singkat (No. 21–25)", max: 10 },
+        { code: "ESSAY", name: "Essay / Uraian (No. 26–30)", max: 15 }
+      ];
+
+      groups.forEach(g => {
+        const items = QUESTIONS.filter(q => q.section === g.code);
+        const earned = items.reduce((acc, q) => acc + (state.scores[q.id] || 0), 0);
+        const checked = items.filter(q => state.checked[q.id]).length;
+        lines.push(`- ${g.name}: ${earned}/${g.max} poin (Diperiksa ${checked}/${items.length} soal)`);
+      });
+
+      lines.push("==========================================================");
+      return lines.join("\n");
+    }
+
+    function openSummary() {
+      const name = (els.studentNameInput.value || state.studentName || "Peserta Didik").trim();
+      state.studentName = name;
+
+      const totalScore = getTotalScore();
+      const finalGrade = Math.round((totalScore / 50) * 100);
+
+      els.summaryStudentName.textContent = name;
+      els.summaryRawScore.textContent = `${totalScore} / 50`;
+      els.summaryFinalGrade.textContent = `${finalGrade}`;
+
+      let predicateMsg = "";
+      if (finalGrade >= 85) {
+        predicateMsg = "🌟 Predikat Sangat Baik (A): Pemahamanmu sangat kuat pada seluruh materi Bab I–IV dan soal penalaran HOTS. Terus pertahankan semangat belajarmu!";
+      } else if (finalGrade >= 75) {
+        predicateMsg = "👏 Predikat Baik (B): Kamu sudah menguasai sebagian besar materi dengan baik. Periksa kembali bagian soal yang skornya masih bisa ditingkatkan.";
+      } else if (finalGrade >= 60) {
+        predicateMsg = "💪 Predikat Cukup (C): Bagus sudah berusaha! Ulangi kembali bagian kosakata, bacaan, dan soal HOTS agar hasilnya semakin maksimal.";
+      } else {
+        predicateMsg = "🌱 Perlu Latihan Tambahan: Jangan berkecil hati! Klik tombol 'Periksa Jawaban' pada tiap soal untuk membaca pembahasan dan coba kerjakan ulang.";
+      }
+      els.summaryPredicateBox.textContent = predicateMsg;
+
+      const groups = [
+        { code: "PG", name: "Pilihan Ganda Biasa", range: "No. 1 – 15", max: 15 },
+        { code: "PGK", name: "Pilihan Ganda Kompleks", range: "No. 16 – 18", max: 6 },
+        { code: "BS", name: "Benar dan Salah", range: "No. 19 – 20", max: 4 },
+        { code: "ISIAN", name: "Isian Singkat", range: "No. 21 – 25", max: 10 },
+        { code: "ESSAY", name: "Essay / Uraian", range: "No. 26 – 30", max: 15 }
+      ];
+
+      els.summaryBreakdownBody.innerHTML = "";
+      groups.forEach(g => {
+        const items = QUESTIONS.filter(q => q.section === g.code);
+        const earned = items.reduce((acc, q) => acc + (state.scores[q.id] || 0), 0);
+        const checked = items.filter(q => state.checked[q.id]).length;
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td class="p-3 font-bold text-slate-800">${g.name}</td>
+          <td class="p-3 text-center text-slate-600 font-semibold">${g.range}</td>
+          <td class="p-3 text-center font-semibold text-sky-700">${checked} / ${items.length}</td>
+          <td class="p-3 text-center font-extrabold text-emerald-700">${earned}</td>
+          <td class="p-3 text-center font-bold text-slate-700">${g.max}</td>
+        `;
+        els.summaryBreakdownBody.appendChild(tr);
+      });
+
+      els.questionStage.classList.add("hidden");
+      els.summarySection.classList.remove("hidden");
+      els.summarySection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function resetQuiz() {
+      state.answers = {};
+      state.checked = {};
+      state.scores = {};
+      state.streak = 0;
+      state.currentQuestionId = 1;
+      state.activeSection = "ALL";
+      els.summarySection.classList.add("hidden");
+      els.questionStage.classList.remove("hidden");
+      renderAll();
+      showToast("Kuis telah direset ke soal nomor 1. Selamat mengerjakan kembali!", "success");
+    }
+
+    function downloadTextReport() {
+      try {
+        const content = buildSummaryReportText();
+        const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        const safeName = (state.studentName || "Siswa_Kelas_5").replace(/[^a-zA-Z0-9_-]+/g, "_");
+        link.href = url;
+        link.download = `Rekap_SAS_Bahasa_Indonesia_${safeName}.txt`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        showToast("Ringkasan nilai berhasil diunduh (.TXT).", "success");
+      } catch (err) {
+        showToast("Gagal mengunduh berkas ringkasan. Kamu bisa menggunakan tombol Cetak Ringkasan.", "warn");
+      }
+    }
+
+    function renderAll() {
+      updateTopStats();
+      renderSectionTabs();
+      renderNavigator();
+      renderQuestionStage();
+    }
+
+    // Event Listeners
+    els.studentNameInput.addEventListener("input", (e) => {
+      state.studentName = e.target.value;
+    });
+
+    els.sectionTabs.querySelectorAll(".sec-tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const secCode = btn.getAttribute("data-section");
+        state.activeSection = secCode;
+        const visibleIds = getVisibleQuestionIds();
+        if (!visibleIds.includes(state.currentQuestionId) && visibleIds.length > 0) {
+          state.currentQuestionId = visibleIds[0];
+        }
+        els.summarySection.classList.add("hidden");
+        els.questionStage.classList.remove("hidden");
+        renderAll();
+      });
+    });
+
+    els.btnPrevQuestion.addEventListener("click", () => {
+      const idx = QUESTIONS.findIndex(q => q.id === state.currentQuestionId);
+      if (idx > 0) {
+        state.currentQuestionId = QUESTIONS[idx - 1].id;
+        renderAll();
+      }
+    });
+
+    els.btnNextQuestion.addEventListener("click", () => {
+      const idx = QUESTIONS.findIndex(q => q.id === state.currentQuestionId);
+      if (idx < QUESTIONS.length - 1) {
+        state.currentQuestionId = QUESTIONS[idx + 1].id;
+        renderAll();
+      }
+    });
+
+    els.btnCheckAnswer.addEventListener("click", handleCheckCurrentAnswer);
+    els.btnFinishQuiz.addEventListener("click", openSummary);
+    els.btnResetQuiz.addEventListener("click", resetQuiz);
+    els.toastClose.addEventListener("click", hideToast);
+
+    els.btnBackToQuestions.addEventListener("click", () => {
+      els.summarySection.classList.add("hidden");
+      els.questionStage.classList.remove("hidden");
+      renderAll();
+    });
+
+    els.btnDownloadReport.addEventListener("click", downloadTextReport);
+    els.btnPrintReport.addEventListener("click", () => window.print());
+
+    // Initial Render
+    renderAll();
+  </script>
+</body>
+</html>
